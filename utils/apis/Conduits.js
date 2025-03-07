@@ -6,7 +6,7 @@ export class Conduits {
       return existingConduit;
     }
 
-    const conduit = await createConduit();
+    const conduit = await this.createConduit();
     await bot.db.query('INSERT INTO conduits (id) VALUES (?)', [conduit.id]);
 
     return conduit.id;

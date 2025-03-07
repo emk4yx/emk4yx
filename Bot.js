@@ -8,6 +8,9 @@ import { Permissions } from './utils/permissions.js';
 import { Utils } from './utils/utils.js';
 import { Stats } from './utils/Stats.js';
 import { Channels } from './utils/Channels.js';
+import { IrcClient } from './utils/IrcClient.js';
+import { IrcMessageHandler } from './utils/IrcMessageHandler.js';
+import { Crons } from './utils/Crons.js';
 
 export class Bot {
   constructor() {
@@ -15,6 +18,9 @@ export class Bot {
 
     this.api = new Api();
     this.db = new Database();
+    this.ircclient = new IrcClient();
+    this.ircmessagehandler = new IrcMessageHandler();
+    this.crons = new Crons();
 
     this.utils = new Utils();
     this.stats = new Stats();
@@ -32,8 +38,9 @@ export class Bot {
       this.loadCommands(),
       this.channels.initialize(),
       this.permissions.initialize(),
+      this.crons.initialize(),
       this.conduitClient.initialize(),
-      this.api.irc.initialize(),
+      this.ircclient.initialize(),
     ]);
   }
 

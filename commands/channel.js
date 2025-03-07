@@ -25,11 +25,11 @@ export default {
         }
 
         const moderatedChannels = await bot.api.helix.getModeratingChannels();
-        if (!moderatedChannels.has(channelId)) {
-          return response(
-            `i'm not modded in ${bot.utils.antiPing(channel)}. please add @${config.bot.username} as a moderator in this channel and retry`
-          );
-        }
+        // if (!moderatedChannels.has(channelId)) {
+        //   return response(
+        //     `i'm not modded in ${bot.utils.antiPing(channel)}. please add @${config.bot.username} as a moderator in this channel and retry`
+        //   );
+        // }
 
         await bot.channels.join(channelId, channel);
 

@@ -2,7 +2,6 @@ import { Ivr } from './apis/Ivr.js';
 import config from '../config.js';
 import { Helix } from './apis/Helix.js';
 import { Conduits } from './apis/Conduits.js';
-import { IRC } from './apis/IRC.js';
 
 export class Api {
   constructor() {
@@ -12,7 +11,6 @@ export class Api {
     this.ivr = new Ivr();
     this.helix = new Helix();
     this.conduits = new Conduits();
-    this.irc = new IRC();
   }
 
   async fetch(url, options = {}, responseType = 'json') {
